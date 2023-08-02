@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1a | awk '{printf("%s%s",sep,$0) sep=","} END{print ""}' | sed 's/\.\//.\//g' | sed 's/\.$//g' | sort -d -f -k 1.1,1.1 -k 2n
+ls -1a | sed 's/ /\\ /g' | awk '{printf("%s%s",(NR==1?"":","),$0)} END{print ""}' | sed 's/.\//.\//' | sort -df -k1.1,1.1 -k2n
