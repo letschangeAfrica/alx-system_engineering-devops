@@ -1,2 +1,2 @@
 #!/bin/bash
-rsync -u --exclude='*/' *.html ../
+for f in *.htmldo [ "$f" -nt "../$f" ]  cp -n "$f" "../" done
