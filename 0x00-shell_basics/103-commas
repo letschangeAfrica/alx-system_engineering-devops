@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -a1 | sed 's/\(.*\/\)$/ \1/' | tr '\n' ',' | sed 's/,$/\n/' | LC_ALL=C sort -df | sed 's/^\.\/\{0,1\}\(.*\)$/.\1/' | sed '1s/^/.\n..\n/' | sed 's/ /\/ /g' | tr ' ' ','
+ls -xamp
