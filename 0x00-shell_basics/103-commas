@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -1a | awk '{printf("%s%s",(NR==1 $0=="." $0=="..")?"":",",$0)} END{print ""}' | sed 's/\.\//.\//' | sed 's/\([^\/]\)$/\1\//' | sort -df -k1.1,1.1 -k2n
+ls -a1 | sed 's/\(.*\/\)$/ \1/' | tr '\n' ',' | sed 's/,$/\n/' | LC_ALL=C sort -df | sed 's/^\.\/\{0,1\}\(.*\)$/.\1/' | sed '1s/^/.\n..\n/' | sed 's/ /\/ /g' | tr ' ' ','
